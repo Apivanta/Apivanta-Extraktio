@@ -5,12 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Extraktio - Dokumentenarchive strukturieren | Apivanta</title>
 <meta name="description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud. In Wochen, nicht Jahren.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Extraktio – Dokumentenarchive strukturieren | Apivanta">
+<meta property="og:description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud.">
+<meta property="og:url" content="https://extraktio.apivanta.com">
+<meta property="og:image" content="https://extraktio.apivanta.com/Mountain-hero.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Extraktio – Dokumentenarchive strukturieren | Apivanta">
+<meta name="twitter:description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud.">
+<meta name="twitter:image" content="https://extraktio.apivanta.com/Mountain-hero.jpeg">
+<link rel="canonical" href="https://extraktio.apivanta.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
 :root {
   --navy:        #1E3A5F;
@@ -89,13 +130,6 @@ body {
   z-index: 1;
 }
 
-.hero-glow {
-  display: none;
-}
-
-.hero-glow-2 {
-  display: none;
-}
 
 .hero-inner {
   position: relative; z-index: 2;
@@ -512,8 +546,6 @@ section { padding: 80px 0; }
   background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
   position: relative; overflow: hidden;
 }
-.roi-grid { display: none; }
-.roi-glow { display: none; }
 .roi .section-label  { color: var(--blue); }
 .roi .section-label::before { background: var(--blue); }
 .roi .section-title  { color: var(--navy); }
@@ -755,7 +787,7 @@ section { padding: 80px 0; }
 .cta::before {
   content: '';
   position: absolute; inset: 0;
-  background: url('topographic-pattern.png') center center / cover no-repeat;
+  background: url('topographic-pattern.svg') center center / cover no-repeat;
   opacity: 0.25;
   pointer-events: none;
   mix-blend-mode: screen;
@@ -894,19 +926,23 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
   .problem-grid, .drivers, .ba-split, .usps-grid, .possible-grid { grid-template-columns: 1fr; }
   .roi-cards { grid-template-columns: 1fr; gap: 20px; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-  .layers { grid-template-columns: repeat(2, 1fr); }
-  .quote-glass { padding: 32px 28px; }
 }
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+  padding: 8px 16px; background: var(--blue); color: #fff;
+  font-size: 14px; z-index: 1000; border-radius: 4px;
+}
+.skip-link:focus { left: 16px; top: 16px; }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ══════════════════════════════════════════════════════ HERO -->
+<main id="main">
 <section class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
-  <a href="https://apivanta.com" class="hero-logo"><img src="logo-apivanta.png" alt="Apivanta"></a>
+  <a href="https://apivanta.com" class="hero-logo"><img src="logo-apivanta.png" alt="Apivanta" width="139" height="164"></a>
   <div class="container">
     <div class="hero-inner">
       <div>
@@ -921,9 +957,9 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
           <span class="hero-pill-dot"></span>
           100 % On-Premise - keine Cloud, keine externen APIs
         </div>
-        <a href="#cta" class="hero-cta-btn">
+        <a href="#cta" class="hero-cta-btn" aria-label="Erstgespräch vereinbaren">
           Erstgespräch vereinbaren
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
       <div class="hero-card">
@@ -1189,7 +1225,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
     </div>
 
     <div class="uzh-box fade-up">
-      <img src="uzh-logo.svg" alt="UZH" class="uzh-logo" onerror="this.style.display='none'">
+      <img src="uzh-logo.svg" alt="Universität Zürich" class="uzh-logo" width="143" height="49" loading="lazy" decoding="async" onerror="this.style.display='none'">
       <div>
         <div class="uzh-title">Referenz: Universität Zürich (UZH)</div>
         <div class="uzh-sub">Produktiver Einsatz beim SharePoint-Migrationsprojekt der UZH.</div>
@@ -1302,27 +1338,28 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
       <p class="cta-sub">Lassen Sie uns Ihre Dokumentensituation besprechen -<br>kostenlos und unverbindlich.</p>
       <div class="cta-team">
         <div class="cta-person">
-          <div class="cta-person-photo"><img src="david.png" alt="David Parolo"></div>
+          <div class="cta-person-photo"><img src="david.webp" alt="David Parolo" width="360" height="540" loading="lazy" decoding="async"></div>
           <div class="cta-person-name">David Parolo</div>
           <div class="cta-person-role">Business &amp; Prozesse</div>
         </div>
         <div class="cta-person">
-          <div class="cta-person-photo"><img src="mario.png" alt="Mario Saladino"></div>
+          <div class="cta-person-photo"><img src="mario.webp" alt="Mario Saladino" width="376" height="564" loading="lazy" decoding="async"></div>
           <div class="cta-person-name">Mario Saladino</div>
           <div class="cta-person-role">Tech &amp; Produkt</div>
         </div>
       </div>
       <div class="cta-links">
-        <a href="mailto:dp@apivanta.com">dp@apivanta.com</a>
+        <a href="mailto:dp@apivanta.com" aria-label="E-Mail an David Parolo">dp@apivanta.com</a>
         <span class="cta-sep">·</span>
-        <a href="mailto:ms@apivanta.com">ms@apivanta.com</a>
+        <a href="mailto:ms@apivanta.com" aria-label="E-Mail an Mario Saladino">ms@apivanta.com</a>
         <span class="cta-sep">·</span>
-        <a href="https://apivanta.com">apivanta.com</a>
+        <a href="https://apivanta.com" aria-label="Apivanta Website">apivanta.com</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="container">
     <p>© 2026 Apivanta &nbsp;·&nbsp; Extraktio</p>
@@ -1337,175 +1374,134 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
 <script>
-/* ── Sequential pipeline dot animation ─────────────────────────────── */
 (function pipelineAnim() {
-
-  /* Per-segment settings: weight (fraction of cycle), color */
-  const SEG = [
-    { w: 0.07, c: '#38BDF8' }, /* 0 → 1  input card → stream 1 left   */
-    { w: 0.15, c: '#38BDF8' }, /* 1 → 2  traverse stream 1             */
-    { w: 0.07, c: '#7EC8F7' }, /* 2 → 3  step-down s1 → s2             */
-    { w: 0.15, c: '#60A5FA' }, /* 3 → 4  traverse stream 2             */
-    { w: 0.07, c: '#8B97F7' }, /* 4 → 5  step-down s2 → s3             */
-    { w: 0.15, c: '#A78BFA' }, /* 5 → 6  traverse stream 3             */
-    { w: 0.07, c: '#6DD0C0' }, /* 6 → 7  step-down s3 → s4             */
-    { w: 0.15, c: '#34D399' }, /* 7 → 8  traverse stream 4             */
-    { w: 0.08, c: '#34D399' }, /* 8 → 9  stream 4 right → output card  */
-    { w: 0.04, c: '#34D399' }, /* 9 → 10 enter into output card center */
+  var SEG = [
+    { w: 0.07, c: '#38BDF8' },
+    { w: 0.15, c: '#38BDF8' },
+    { w: 0.07, c: '#7EC8F7' },
+    { w: 0.15, c: '#60A5FA' },
+    { w: 0.07, c: '#8B97F7' },
+    { w: 0.15, c: '#A78BFA' },
+    { w: 0.07, c: '#6DD0C0' },
+    { w: 0.15, c: '#34D399' },
+    { w: 0.08, c: '#34D399' },
+    { w: 0.04, c: '#34D399' },
   ];
-  const TOTAL_MS = 9000;
-  const FADE_IN_END  = 0.02; /* dot fades in during first 2% */
-  const FADE_OUT_START = 0.94; /* dot fades out during last 6% */
+  var TOTAL_MS = 9000;
+  var FADE_IN_END = 0.02;
+  var FADE_OUT_START = 0.94;
+  var NS = 'http://www.w3.org/2000/svg';
 
-  /* Cumulative weight breakpoints (0 … 1) */
-  const CUM = [0];
-  SEG.forEach(s => CUM.push(CUM[CUM.length - 1] + s.w));
+  var CUM = [0];
+  SEG.forEach(function(s) { CUM.push(CUM[CUM.length - 1] + s.w); });
 
-  function init() {
-    const layout = document.getElementById('piLayout');
-    if (!layout) return;
-    const inCard  = layout.querySelector('.pi-card-in');
-    const outCard = layout.querySelector('.pi-card-out');
-    const streams = layout.querySelectorAll('.pi-stream');
-    if (!inCard || !outCard || streams.length < 4) return;
+  var rafId = null;
+  var svg, dot, trail, WP;
 
-    const lr = layout.getBoundingClientRect();
-
+  function computeWaypoints(layout, inCard, outCard, streams) {
+    var lr = layout.getBoundingClientRect();
     function box(el) {
-      const b = el.getBoundingClientRect();
-      return {
-        l:  b.left   - lr.left,
-        r:  b.right  - lr.left,
-        cy: (b.top + b.bottom) / 2 - lr.top
-      };
+      var b = el.getBoundingClientRect();
+      return { l: b.left - lr.left, r: b.right - lr.left, cy: (b.top + b.bottom) / 2 - lr.top };
     }
-
-    const ic = box(inCard);
-    const oc = box(outCard);
-    const s  = Array.from(streams).map(box);
-
-    /* Waypoints the dot passes through in order */
-    const WP = [
-      [ic.r,    s[0].cy ],  /* 0 - exit  input card (at stream 1 height) */
-      [s[0].l,  s[0].cy ],  /* 1 - enter stream 1 left         */
-      [s[0].r,  s[0].cy ],  /* 2 - exit  stream 1 right        */
-      [s[1].l,  s[1].cy ],  /* 3 - enter stream 2 left         */
-      [s[1].r,  s[1].cy ],  /* 4 - exit  stream 2 right        */
-      [s[2].l,  s[2].cy ],  /* 5 - enter stream 3 left         */
-      [s[2].r,  s[2].cy ],  /* 6 - exit  stream 3 right        */
-      [s[3].l,  s[3].cy ],  /* 7 - enter stream 4 left         */
-      [s[3].r,  s[3].cy ],  /* 8 - exit  stream 4 right        */
-      [oc.l,    oc.cy   ],  /* 9 - enter output card edge      */
-      [oc.l + (oc.r - oc.l) * 0.5, oc.cy], /* 10 - output card center */
+    var ic = box(inCard), oc = box(outCard);
+    var s = Array.from(streams).map(box);
+    WP = [
+      [ic.r, s[0].cy], [s[0].l, s[0].cy], [s[0].r, s[0].cy],
+      [s[1].l, s[1].cy], [s[1].r, s[1].cy],
+      [s[2].l, s[2].cy], [s[2].r, s[2].cy],
+      [s[3].l, s[3].cy], [s[3].r, s[3].cy],
+      [oc.l, oc.cy], [oc.l + (oc.r - oc.l) * 0.5, oc.cy],
     ];
-
-    /* SVG overlay */
-    const NS  = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.style.cssText = [
-      'position:absolute', 'top:0', 'left:0',
-      'width:100%', 'height:100%',
-      'pointer-events:none', 'overflow:visible', 'z-index:5'
-    ].join(';');
-    layout.appendChild(svg);
-
-    /* Glow filter */
-    svg.innerHTML = `
-      <defs>
-        <filter id="pglow" x="-150%" y="-150%" width="400%" height="400%">
-          <feGaussianBlur stdDeviation="3.5" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>`;
-
-    /* Static guide paths removed – dot animates without visible track */
-
-    /* Trail (softer dot slightly behind) */
-    const trail = document.createElementNS(NS, 'circle');
-    trail.setAttribute('r', '2.4');
-    trail.setAttribute('opacity', '0.35');
-    svg.appendChild(trail);
-
-    /* Main dot */
-    const dot = document.createElementNS(NS, 'circle');
-    dot.setAttribute('r', '3.8');
-    dot.setAttribute('filter', 'url(#pglow)');
-    svg.appendChild(dot);
-
-    /* ── Interpolation helpers ── */
-    function cubicBez(t, x1, y1, x2, y2) {
-      if (Math.abs(y2 - y1) < 4) {
-        /* straight horizontal */
-        return [x1 + (x2 - x1) * t, y1];
-      }
-      /* S-curve: control points keep start-y then arrive at end-y */
-      var cpx = (x1 + x2) / 2;
-      var u = 1 - t;
-      var bx = u * u * u * x1 + 3 * u * u * t * cpx + 3 * u * t * t * cpx + t * t * t * x2;
-      var by = u * u * u * y1 + 3 * u * u * t * y1  + 3 * u * t * t * y2  + t * t * t * y2;
-      return [bx, by];
-    }
-
-    function easeInOut(t) {
-      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    /* ── Animation loop ── */
-    var t0 = null;
-
-    function frame(ts) {
-      if (!t0) t0 = ts;
-      var prog = ((ts - t0) % TOTAL_MS) / TOTAL_MS; /* 0 … 1 */
-
-      /* Find which segment we're in */
-      var si = SEG.length - 1;
-      for (var i = 0; i < SEG.length; i++) {
-        if (prog < CUM[i + 1]) { si = i; break; }
-      }
-
-      var localT = easeInOut((prog - CUM[si]) / SEG[si].w);
-      var x1 = WP[si][0],     y1 = WP[si][1];
-      var x2 = WP[si + 1][0], y2 = WP[si + 1][1];
-
-      var pos   = cubicBez(localT, x1, y1, x2, y2);
-      var trailT = Math.max(0, localT - 0.1);
-      var tpos  = cubicBez(trailT, x1, y1, x2, y2);
-
-      /* Fade in at start, fade out at end */
-      var alpha = 1;
-      if (prog < FADE_IN_END) {
-        alpha = prog / FADE_IN_END;
-      } else if (prog > FADE_OUT_START) {
-        alpha = 1 - (prog - FADE_OUT_START) / (1 - FADE_OUT_START);
-      }
-
-      dot.setAttribute('cx',   pos[0].toFixed(1));
-      dot.setAttribute('cy',   pos[1].toFixed(1));
-      dot.setAttribute('fill', SEG[si].c);
-      dot.setAttribute('opacity', alpha.toFixed(2));
-
-      trail.setAttribute('cx',   tpos[0].toFixed(1));
-      trail.setAttribute('cy',   tpos[1].toFixed(1));
-      trail.setAttribute('fill', SEG[si].c);
-      trail.setAttribute('opacity', (alpha * 0.35).toFixed(2));
-
-      requestAnimationFrame(frame);
-    }
-
-    requestAnimationFrame(frame);
   }
 
-  /* Run after layout is rendered */
+  function cubicBez(t, x1, y1, x2, y2) {
+    if (Math.abs(y2 - y1) < 4) return [x1 + (x2 - x1) * t, y1];
+    var cpx = (x1 + x2) / 2, u = 1 - t;
+    return [
+      u*u*u*x1 + 3*u*u*t*cpx + 3*u*t*t*cpx + t*t*t*x2,
+      u*u*u*y1 + 3*u*u*t*y1  + 3*u*t*t*y2  + t*t*t*y2
+    ];
+  }
+
+  function easeInOut(t) { return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t; }
+
+  function init() {
+    var layout = document.getElementById('piLayout');
+    if (!layout) return;
+    var inCard = layout.querySelector('.pi-card-in');
+    var outCard = layout.querySelector('.pi-card-out');
+    var streams = layout.querySelectorAll('.pi-stream');
+    if (!inCard || !outCard || streams.length < 4) return;
+
+    computeWaypoints(layout, inCard, outCard, streams);
+
+    svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:5';
+    layout.appendChild(svg);
+
+    var defs = document.createElementNS(NS, 'defs');
+    var filter = document.createElementNS(NS, 'filter');
+    filter.setAttribute('id', 'pglow');
+    filter.setAttribute('x', '-150%'); filter.setAttribute('y', '-150%');
+    filter.setAttribute('width', '400%'); filter.setAttribute('height', '400%');
+    var blur = document.createElementNS(NS, 'feGaussianBlur');
+    blur.setAttribute('stdDeviation', '3.5'); blur.setAttribute('result', 'blur');
+    var merge = document.createElementNS(NS, 'feMerge');
+    var mn1 = document.createElementNS(NS, 'feMergeNode'); mn1.setAttribute('in', 'blur');
+    var mn2 = document.createElementNS(NS, 'feMergeNode'); mn2.setAttribute('in', 'SourceGraphic');
+    merge.appendChild(mn1); merge.appendChild(mn2);
+    filter.appendChild(blur); filter.appendChild(merge);
+    defs.appendChild(filter); svg.appendChild(defs);
+
+    trail = document.createElementNS(NS, 'circle');
+    trail.setAttribute('r', '2.4'); trail.setAttribute('opacity', '0.35');
+    svg.appendChild(trail);
+
+    dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('r', '3.8'); dot.setAttribute('filter', 'url(#pglow)');
+    svg.appendChild(dot);
+
+    var ro = new ResizeObserver(function() {
+      computeWaypoints(layout, inCard, outCard, streams);
+    });
+    ro.observe(layout);
+
+    var t0 = null;
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var prog = ((ts - t0) % TOTAL_MS) / TOTAL_MS;
+      var si = SEG.length - 1;
+      for (var i = 0; i < SEG.length; i++) { if (prog < CUM[i + 1]) { si = i; break; } }
+      var localT = easeInOut((prog - CUM[si]) / SEG[si].w);
+      var pos = cubicBez(localT, WP[si][0], WP[si][1], WP[si+1][0], WP[si+1][1]);
+      var tpos = cubicBez(Math.max(0, localT - 0.1), WP[si][0], WP[si][1], WP[si+1][0], WP[si+1][1]);
+      var alpha = 1;
+      if (prog < FADE_IN_END) alpha = prog / FADE_IN_END;
+      else if (prog > FADE_OUT_START) alpha = 1 - (prog - FADE_OUT_START) / (1 - FADE_OUT_START);
+      dot.setAttribute('cx', pos[0].toFixed(1)); dot.setAttribute('cy', pos[1].toFixed(1));
+      dot.setAttribute('fill', SEG[si].c); dot.setAttribute('opacity', alpha.toFixed(2));
+      trail.setAttribute('cx', tpos[0].toFixed(1)); trail.setAttribute('cy', tpos[1].toFixed(1));
+      trail.setAttribute('fill', SEG[si].c); trail.setAttribute('opacity', (alpha * 0.35).toFixed(2));
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function start() { if (!rafId) { t0 = null; rafId = requestAnimationFrame(frame); } }
+    function stop()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+    document.addEventListener('visibilitychange', function() {
+      document.hidden ? stop() : start();
+    });
+
+    start();
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() { setTimeout(init, 80); });
   } else {
     setTimeout(init, 80);
   }
-
 })();
 </script>
 </body>

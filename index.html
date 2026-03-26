@@ -3,20 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extraktio - Dokumentenarchive strukturieren | Apivanta</title>
-<meta name="description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud. In Wochen, nicht Jahren.">
+<title>Extraktio – Dokumentenarchive strukturieren | Apivanta</title>
+<meta name="description" content="Wir strukturieren Ihr Dokumentenarchiv mit KI: klassifiziert, mit Metadaten, migrationsbereit. 100 % On-Premise, keine Cloud. In Wochen, nicht Jahren.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Extraktio – Dokumentenarchive strukturieren | Apivanta">
-<meta property="og:description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud.">
+<meta property="og:description" content="KI-gestützte Dokumentenstrukturierung. Klassifiziert, mit Metadaten, migrationsbereit. 100 % On-Premise.">
 <meta property="og:url" content="https://extraktio.apivanta.com">
 <meta property="og:image" content="https://extraktio.apivanta.com/Mountain-hero.jpeg">
+<meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Extraktio – Dokumentenarchive strukturieren | Apivanta">
-<meta name="twitter:description" content="Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. 100% On-Premise, keine Cloud.">
+<meta name="twitter:description" content="KI-gestützte Dokumentenstrukturierung. 100 % On-Premise, keine Cloud.">
 <meta name="twitter:image" content="https://extraktio.apivanta.com/Mountain-hero.jpeg">
 <link rel="canonical" href="https://extraktio.apivanta.com">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'">
+<link rel="alternate" hreflang="de" href="https://extraktio.apivanta.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.io; frame-ancestors 'none'">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script defer data-domain="extraktio.apivanta.com" src="https://plausible.io/js/script.js"></script>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Apivanta",
+      "url": "https://apivanta.com",
+      "logo": "https://extraktio.apivanta.com/logo-apivanta.png"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Extraktio – Dokumentenarchive strukturieren",
+      "url": "https://extraktio.apivanta.com",
+      "description": "KI-gestützte Strukturierung von Dokumentenarchiven. On-Premise, klassifiziert, migrationsbereit.",
+      "publisher": { "@type": "Organization", "name": "Apivanta" }
+    },
+    {
+      "@type": "Service",
+      "name": "Extraktio",
+      "provider": { "@type": "Organization", "name": "Apivanta" },
+      "description": "KI-gestützte Strukturierung und Klassifizierung von Dokumentenarchiven für die Migration nach SharePoint.",
+      "areaServed": "CH"
+    }
+  ]
+}
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -74,8 +106,6 @@
   --orange:      #D97706;
   --border:      #E2E8F0;
   --border-dark: rgba(255,255,255,0.08);
-
-  /* Glassmorphism - Apple-style frosted glass */
   --glass-bg:      rgba(255,255,255,0.55);
   --glass-bg-strong: rgba(255,255,255,0.65);
   --glass-border:  rgba(255,255,255,0.8);
@@ -97,16 +127,79 @@ body {
 
 .container { max-width: 980px; margin: 0 auto; padding: 0 48px; }
 
-/* ─────────────────────────────────────────────────────── HERO (Mountain Photo) */
+/* ── NAV ────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.96);
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 8px rgba(30,58,95,0.06);
+}
+.nav-logo img { height: 28px; width: auto; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--slate-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--navy); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--navy-light); }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--navy);
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── HERO ───────────────────────────────────────────────── */
 .hero {
   background: url('Mountain-hero.jpeg') center bottom / cover no-repeat;
   position: relative;
   overflow: hidden;
-  padding: 72px 0 220px;
+  padding: 136px 0 220px;
   min-height: 600px;
 }
-
-/* Light overlay on sky area for text readability */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -119,7 +212,6 @@ body {
   );
   pointer-events: none;
 }
-
 .hero-grid {
   position: absolute; inset: 0;
   background-image:
@@ -129,8 +221,6 @@ body {
   pointer-events: none;
   z-index: 1;
 }
-
-
 .hero-inner {
   position: relative; z-index: 2;
   display: grid;
@@ -138,7 +228,6 @@ body {
   gap: 64px;
   align-items: start;
 }
-
 .hero-eyebrow {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 10px; font-weight: 700;
@@ -152,7 +241,6 @@ body {
   display: block; width: 24px; height: 1px;
   background: var(--blue);
 }
-
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(38px, 4.8vw, 58px);
@@ -162,14 +250,12 @@ body {
   margin-bottom: 26px;
   letter-spacing: -0.03em;
 }
-
 .hero-title .gradient {
   background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 50%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .hero-sub {
   font-size: 16px; font-weight: 400;
   color: var(--slate);
@@ -177,7 +263,12 @@ body {
   margin-bottom: 40px;
   line-height: 1.8;
 }
-
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
 .hero-pill {
   display: inline-flex;
   align-items: center;
@@ -225,10 +316,7 @@ body {
   width: 16px; height: 16px;
   transition: transform 0.2s;
 }
-.hero-cta-btn:hover svg {
-  transform: translateX(3px);
-}
-
+.hero-cta-btn:hover svg { transform: translateX(3px); }
 .hero-card {
   background: rgba(255,255,255,0.45);
   border: 1px solid rgba(255,255,255,0.6);
@@ -263,10 +351,8 @@ body {
   background: var(--blue); border-radius: 50%; flex-shrink: 0;
 }
 
-/* ─────────────────────────────────────────────────────── SHARED */
+/* ── SHARED ─────────────────────────────────────────────── */
 section { padding: 80px 0; }
-
-
 .section-label {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 10px; font-weight: 700;
@@ -279,7 +365,6 @@ section { padding: 80px 0; }
   content: ''; display: block; width: 16px; height: 1px;
   background: var(--blue);
 }
-
 .section-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(26px, 3.2vw, 38px);
@@ -289,56 +374,66 @@ section { padding: 80px 0; }
   line-height: 1.15;
   margin-bottom: 14px;
 }
-
 .section-sub {
   font-size: 15px; color: var(--slate-light);
   max-width: 560px; line-height: 1.8;
   margin-bottom: 48px;
 }
 
-/* ─────────────────────────────────────────────────────── PROBLEM */
+/* ── PROBLEM ────────────────────────────────────────────── */
 .problem {
   background: linear-gradient(180deg, #F0F6FB 0%, #E8F1F8 100%);
   position: relative;
   overflow: hidden;
 }
-
 .problem .container { position: relative; z-index: 1; }
 
-.problem-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+.chaos-terminal {
+  background: #0F172A;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(15,23,42,0.25);
   margin-top: 8px;
 }
-
-.problem-item {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur)) var(--glass-saturate);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) var(--glass-saturate);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  padding: 28px 28px 28px 22px;
-  border-left: 3px solid transparent;
-  border-radius: 12px;
-  transition: border-left-color 0.25s ease, box-shadow 0.25s ease;
-  cursor: default;
+.chaos-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.problem-item:hover {
-  border-left-color: var(--blue);
-  box-shadow: var(--glass-shadow-hover);
+.chaos-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
 }
-
-.problem-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px; font-weight: 600;
-  color: var(--navy-mid); margin-bottom: 7px;
+.chaos-headerpath {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-left: 8px;
 }
-.problem-text {
-  font-size: 14px; color: var(--slate-light); line-height: 1.65;
+.chaos-body { padding: 20px 22px; }
+.chaos-line {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
 }
-.problem-text strong { color: var(--slate); font-weight: 500; }
-
+.chaos-line:last-child { border-bottom: none; }
+.chaos-icon { flex-shrink: 0; font-size: 14px; }
+.chaos-hi { color: rgba(255,255,255,0.65); }
+.chaos-note {
+  font-size: 11px;
+  color: var(--orange);
+  margin-left: 4px;
+}
+.chaos-dim { color: rgba(255,255,255,0.2); font-style: italic; }
 .drivers {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 14px; margin-top: 28px;
@@ -362,39 +457,193 @@ section { padding: 80px 0; }
 .driver.amber .driver-title { color: var(--orange); }
 .driver-text { font-size: 14px; color: var(--slate-light); line-height: 1.65; }
 
-/* ─────────────────────────────────────────────────────── SOLUTION */
+/* ── SOLUTION ───────────────────────────────────────────── */
 .solution { background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%); }
 
-.phases {
-  display: flex; flex-direction: column; gap: 2px;
+.stepper {
+  display: flex; flex-direction: column;
   border-radius: 12px; overflow: hidden;
   border: 1px solid var(--border);
   margin-top: 8px;
 }
-.phase { display: grid; grid-template-columns: 68px 1fr; }
-.phase-num {
-  background: var(--navy);
+.step { border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.step-header:hover { background: rgba(2,132,199,0.03); }
+.step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-pale);
+  width: 32px; height: 32px;
+  border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px; font-weight: 700;
-  color: rgba(255,255,255,0.55);
+  flex-shrink: 0;
 }
-.phase-body { padding: 28px 32px; }
-.phase:nth-child(odd)  .phase-body { background: var(--light); }
-.phase:nth-child(even) .phase-body { background: var(--white); }
-.phase-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px; font-weight: 600; color: var(--navy-mid); margin-bottom: 8px;
+.step-icon {
+  color: var(--slate-light);
+  flex-shrink: 0;
+  display: flex;
 }
-.phase-text { font-size: 14px; color: var(--slate); line-height: 1.75; }
-.phase-text code {
-  background: var(--blue-pale); color: var(--blue);
+.step-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px; font-weight: 600;
-  padding: 1px 6px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  color: var(--navy);
+  text-align: left;
+  flex: 1;
+}
+.step-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-pale);
+  padding: 3px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.step-chevron {
+  color: var(--slate-light);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.step.open .step-chevron { transform: rotate(180deg); }
+.step-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.step-detail p {
+  padding: 0 24px 20px 70px;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.75;
 }
 
-/* ── PIPELINE INFOGRAPHIC (stays dark) ─────────────────── */
+/* ── FILENAME TRANSFORMATION ────────────────────────────── */
+.transform {
+  margin-top: 32px;
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(30,58,95,0.2);
+}
+.transform::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+.transform-label-top {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(56,189,248,0.45);
+  margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.transform-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative; z-index: 1;
+}
+.transform-side { flex: 1; min-width: 0; }
+.transform-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.transform-before .transform-tag { color: rgba(220,38,38,0.6); }
+.transform-after .transform-tag { color: rgba(74,222,128,0.6); }
+.transform-code {
+  display: block;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 14px 16px;
+  border-radius: 8px;
+  word-break: break-all;
+}
+.transform-before .transform-code {
+  background: rgba(220,38,38,0.08);
+  border: 1px solid rgba(220,38,38,0.15);
+  color: rgba(255,255,255,0.5);
+}
+.transform-after .transform-code {
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.15);
+  color: rgba(255,255,255,0.7);
+}
+.transform-arrow {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.2);
+}
+.tf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  background: rgba(74,222,128,0.06);
+  border: 1px solid rgba(74,222,128,0.15);
+  border-radius: 8px;
+  padding: 12px 10px 8px;
+}
+.tf-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.tf-cell code {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  background: rgba(74,222,128,0.1);
+  padding: 3px 7px;
+  border-radius: 4px;
+  border-bottom: 2px solid rgba(74,222,128,0.3);
+}
+.tf-cell span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  color: rgba(74,222,128,0.45);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.tf-cell-desc code { background: rgba(74,222,128,0.06); }
+.tf-cell-ext code {
+  background: none;
+  border-bottom: none;
+  color: rgba(255,255,255,0.3);
+  font-weight: 400;
+}
+.transform-caption {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  position: relative; z-index: 1;
+}
+
+/* ── PIPELINE INFOGRAPHIC ───────────────────────────────── */
 .pi {
   margin-top: 44px;
   background: var(--navy);
@@ -416,7 +665,15 @@ section { padding: 80px 0; }
   font-family: 'Space Grotesk', sans-serif;
   font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(56,189,248,0.45);
-  margin-bottom: 24px; position: relative; z-index: 1;
+  margin-bottom: 6px; position: relative; z-index: 1;
+}
+.pi-summary {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 24px;
+  position: relative; z-index: 1;
+  line-height: 1.6;
+  max-width: 520px;
 }
 .pi-layout {
   display: grid;
@@ -488,13 +745,13 @@ section { padding: 80px 0; }
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px; font-weight: 700; opacity: 0.22;
   flex-shrink: 0; width: 42px; line-height: 1; text-align: right;
+  position: relative; z-index: 2;
 }
 .pi-stream-sky .pi-stream-num { color: #38BDF8; }
 .pi-stream-blu .pi-stream-num { color: #60A5FA; }
 .pi-stream-vio .pi-stream-num { color: #A78BFA; }
 .pi-stream-eme .pi-stream-num { color: #34D399; }
 .pi-stream-body { flex: 1; min-width: 0; position: relative; z-index: 2; }
-.pi-stream-num { position: relative; z-index: 2; }
 .pi-stream-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 12.5px; font-weight: 700; color: var(--white); margin-bottom: 4px;
@@ -535,24 +792,13 @@ section { padding: 80px 0; }
 }
 .pi-fchip:first-child { padding-left: 0; }
 .pi-fchip:last-child  { border-right: none; }
-@media (max-width: 860px) {
-  .pi-layout { grid-template-columns: 1fr; gap: 16px; }
-  .pi-conn { display: none; }
-  .pi-card { height: auto; }
-}
 
-/* ─────────────────────────────────────────────────────── ROI */
+/* ── ROI ────────────────────────────────────────────────── */
 .roi {
   background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
   position: relative; overflow: hidden;
 }
-.roi .section-label  { color: var(--blue); }
-.roi .section-label::before { background: var(--blue); }
-.roi .section-title  { color: var(--navy); }
-.roi .section-sub    { color: var(--slate-light); }
-
 .roi-inner { position: relative; z-index: 1; }
-
 .roi-cards {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 14px; margin-top: 8px;
@@ -567,7 +813,7 @@ section { padding: 80px 0; }
   box-shadow: var(--glass-shadow);
   position: relative;
 }
-.roi-card.hero-card-highlight {
+.roi-card.highlight {
   background: rgba(2,132,199,0.08);
   border-color: rgba(2,132,199,0.3);
   box-shadow: 0 8px 32px rgba(2,132,199,0.12);
@@ -591,35 +837,63 @@ section { padding: 80px 0; }
   margin-bottom: 6px;
   color: var(--navy);
 }
-.roi-card.hero-card-highlight .roi-val {
+.roi-card.highlight .roi-val {
   background: linear-gradient(135deg, #0284C7, #0EA5E9);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.roi-unit {
-  font-size: 18px; font-weight: 300;
-}
+.roi-unit { font-size: 18px; font-weight: 300; }
 .roi-detail {
   font-size: 12px; color: var(--slate-light);
   line-height: 1.6; margin-top: 12px;
 }
-.roi-card.hero-card-highlight .roi-detail { color: var(--blue); }
-
+.roi-card.highlight .roi-detail { color: var(--blue); }
 .roi-footnote {
   margin-top: 24px; font-size: 12px;
   color: var(--slate-light); font-style: italic; text-align: center;
   position: relative; z-index: 1;
 }
 
-/* ─────────────────────────────────────────────────────── METRICS (Referenz) */
+/* ── INLINE CTA ─────────────────────────────────────────── */
+.inline-cta { padding: 36px 0; text-align: center; }
+.inline-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.inline-cta-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--slate);
+}
+.inline-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.inline-cta-btn:hover {
+  background: var(--blue-bright);
+  transform: translateY(-1px);
+}
+.inline-cta-btn svg { width: 14px; height: 14px; }
+
+/* ── METRICS ────────────────────────────────────────────── */
 .metrics {
   background: linear-gradient(180deg, #EDF3F9 0%, #F0F6FB 100%);
   position: relative;
   overflow: hidden;
 }
-
 .metrics .container { position: relative; z-index: 1; }
-
 .metrics-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 14px; margin-top: 8px;
@@ -643,7 +917,6 @@ section { padding: 80px 0; }
   font-size: 13px; font-weight: 600; color: var(--navy-mid); margin-bottom: 5px;
 }
 .metric-sub { font-size: 12px; color: var(--slate-light); line-height: 1.4; }
-
 .uzh-box {
   margin-top: 20px;
   background: var(--glass-bg-strong);
@@ -653,21 +926,34 @@ section { padding: 80px 0; }
   border-left: 3px solid var(--blue);
   border-radius: 12px;
   box-shadow: var(--glass-shadow);
-  padding: 20px 28px;
-  display: flex; align-items: center; gap: 20px;
+  padding: 28px 28px;
+  display: flex; align-items: flex-start; gap: 24px;
+}
+.uzh-logo {
+  flex-shrink: 0;
+  height: 56px; width: auto;
+  opacity: 0.75;
+  margin-top: 4px;
 }
 .uzh-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px; font-weight: 600; color: var(--navy-mid); margin-bottom: 3px;
+  font-size: 15px; font-weight: 600; color: var(--navy-mid); margin-bottom: 8px;
 }
-.uzh-sub { font-size: 13px; color: var(--slate-light); }
+.uzh-sub { font-size: 13px; color: var(--slate-light); line-height: 1.7; }
+.uzh-stats {
+  display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap;
+}
+.uzh-stat {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 600; color: var(--blue);
+}
+.uzh-stat span { color: var(--slate-light); font-weight: 400; }
 
-/* ─────────────────────────────────────────────────────── BEFORE/AFTER */
+/* ── BEFORE/AFTER ───────────────────────────────────────── */
 .ba {
   background: linear-gradient(180deg, #FFFFFF 0%, #F0F6FB 100%);
   position: relative;
 }
-
 .ba-split {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 2px; margin-top: 8px;
@@ -678,7 +964,6 @@ section { padding: 80px 0; }
 .ba-col { padding: 36px 32px; }
 .ba-col.before { background: rgba(254,242,242,0.65); backdrop-filter: blur(12px); }
 .ba-col.after  { background: rgba(240,253,244,0.65); backdrop-filter: blur(12px); }
-
 .ba-head {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 13px; font-weight: 700;
@@ -687,27 +972,36 @@ section { padding: 80px 0; }
 }
 .ba-col.before .ba-head { color: var(--red); }
 .ba-col.after  .ba-head { color: var(--green); }
-
 .ba-row {
   font-size: 14px; color: var(--slate);
   padding: 10px 0; line-height: 1.55;
   border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex; align-items: flex-start; gap: 10px;
 }
 .ba-row:last-child { border-bottom: none; }
 .ba-col.before .ba-row { color: #6B7280; }
 .ba-col.after  .ba-row { color: var(--slate); font-weight: 400; }
+.ba-row svg { flex-shrink: 0; margin-top: 2px; }
+.ba-row code {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px; background: rgba(0,0,0,0.05);
+  padding: 1px 5px; border-radius: 3px;
+  word-break: break-all;
+}
+.ba-col.after .ba-row code {
+  background: rgba(22,163,74,0.08);
+  color: var(--green);
+}
 
-/* ─────────────────────────────────────────────────────── USPS */
+/* ── USPS ───────────────────────────────────────────────── */
 .usps {
   background: linear-gradient(180deg, #F0F6FB 0%, #E8F0F7 100%);
   position: relative;
   overflow: hidden;
 }
-
 .usps .container { position: relative; z-index: 1; }
-
 .usps-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 16px; margin-top: 8px;
 }
 .usp {
@@ -718,17 +1012,11 @@ section { padding: 80px 0; }
   border-radius: 12px;
   box-shadow: var(--glass-shadow);
   padding: 28px 28px 28px 22px;
-  border-left: 3px solid transparent;
-  transition: border-left-color 0.25s ease, box-shadow 0.25s ease;
+  border-left: 3px solid var(--blue);
+  transition: box-shadow 0.25s ease;
   cursor: default;
 }
-.usp:hover {
-  box-shadow: var(--glass-shadow-hover);
-}
-.usp:nth-child(1) { border-left-color: var(--blue); }
-.usp:nth-child(2) { border-left-color: var(--blue); }
-.usp:nth-child(3) { border-left-color: var(--blue); }
-
+.usp:hover { box-shadow: var(--glass-shadow-hover); }
 .usp-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 14px; font-weight: 700;
@@ -736,15 +1024,13 @@ section { padding: 80px 0; }
 }
 .usp-text { font-size: 14px; color: var(--slate); line-height: 1.75; }
 
-/* ─────────────────────────────────────────────────────── POSSIBLE */
+/* ── POSSIBLE ───────────────────────────────────────────── */
 .possible {
   background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
   position: relative;
   overflow: hidden;
 }
-
 .possible .container { position: relative; z-index: 1; }
-
 .possible-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 14px; margin-top: 8px;
@@ -767,9 +1053,7 @@ section { padding: 80px 0; }
   width: 36px; height: 36px; flex-shrink: 0;
   background: var(--blue-pale); border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 15px; color: var(--blue);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
+  color: var(--blue);
 }
 .possible-title {
   font-family: 'Space Grotesk', sans-serif;
@@ -778,7 +1062,48 @@ section { padding: 80px 0; }
 }
 .possible-text { font-size: 13px; color: var(--slate-light); line-height: 1.65; }
 
-/* ─────────────────────────────────────────────────────── CTA */
+/* ── FAQ ────────────────────────────────────────────────── */
+.faq { background: linear-gradient(180deg, #FFFFFF 0%, #F0F6FB 100%); }
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: left;
+  line-height: 1.4;
+  gap: 16px;
+}
+.faq-question:hover { color: var(--blue); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  color: var(--slate-light);
+  transition: transform 0.3s, color 0.3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--blue); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.75;
+}
+
+/* ── CTA ────────────────────────────────────────────────── */
 .cta {
   background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   padding: 88px 0; text-align: center;
@@ -818,17 +1143,50 @@ section { padding: 80px 0; }
 }
 .cta-sub {
   font-size: 16px; color: rgba(255,255,255,0.55);
-  margin-bottom: 44px; line-height: 1.7;
+  margin-bottom: 36px; line-height: 1.7;
 }
-.cta-links {
+.cta-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--blue);
+  color: var(--white);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px; font-weight: 500;
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  flex-wrap: wrap;
+  font-size: 15px; font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(2,132,199,0.3);
 }
-.cta-links a { color: var(--blue-light); text-decoration: none; }
-.cta-links a:hover { text-decoration: underline; }
-.cta-sep { color: rgba(255,255,255,0.2); }
+.cta-btn-primary:hover {
+  background: var(--blue-bright);
+  transform: translateY(-1px);
+}
+.cta-btn-primary svg { width: 16px; height: 16px; }
+.cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 28px;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cta-btn-secondary:hover {
+  border-color: rgba(255,255,255,0.35);
+  color: var(--white);
+}
 .cta-team {
   display: flex; justify-content: center; gap: 32px;
   margin-bottom: 36px;
@@ -848,7 +1206,6 @@ section { padding: 80px 0; }
   object-fit: cover;
   object-position: center top;
 }
-/* Border ring on top */
 .cta-person-photo::after {
   content: '';
   position: absolute; inset: 0; z-index: 4;
@@ -857,7 +1214,6 @@ section { padding: 80px 0; }
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   pointer-events: none;
 }
-/* White veil + blur behind photo */
 .cta-person-photo::before {
   content: '';
   position: absolute; inset: 0; z-index: 0;
@@ -877,36 +1233,23 @@ section { padding: 80px 0; }
   color: rgba(255,255,255,0.4);
   margin-top: -4px;
 }
-
-/* ── Apivanta Logo (Hero, subtle) ─────────────── */
-.hero-logo {
-  position: absolute;
-  top: 24px; left: 48px;
-  z-index: 3;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+.cta-links {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap;
 }
-.hero-logo:hover { opacity: 1; }
-.hero-logo img {
-  height: 36px; width: auto;
-}
+.cta-links a { color: var(--blue-light); text-decoration: none; }
+.cta-links a:hover { text-decoration: underline; }
+.cta-sep { color: rgba(255,255,255,0.2); }
 
-/* ── UZH Logo (Metrics) ─────────────────────── */
-.uzh-logo {
-  flex-shrink: 0;
-  height: 56px; width: auto;
-  opacity: 0.75;
-}
-
-/* ─────────────────────────────────────────────────────── FOOTER */
+/* ── FOOTER ─────────────────────────────────────────────── */
 footer {
   background: var(--navy-deep);
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 0; text-align: center;
 }
-footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 
-/* ─────────────────────────────────────────────────────── ANIMATIONS */
+/* ── ANIMATIONS ─────────────────────────────────────────── */
 .fade-up {
   opacity: 0;
   transform: translateY(24px);
@@ -917,15 +1260,73 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 .fade-up:nth-child(2) { transition-delay: 0.1s; }
 .fade-up:nth-child(3) { transition-delay: 0.2s; }
 
-/* ─────────────────────────────────────────────────────── RESPONSIVE */
+/* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .hero { padding: 60px 0 160px; min-height: 500px; }
+  .nav { padding: 0 24px; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(30,58,95,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 14px 24px; font-size: 14px; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero { padding: 124px 0 160px; min-height: 500px; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-card { display: none; }
+  .hero-mobile-features { display: flex; }
   .container { padding: 0 24px; }
-  .problem-grid, .drivers, .ba-split, .usps-grid, .possible-grid { grid-template-columns: 1fr; }
+  .drivers, .ba-split, .possible-grid { grid-template-columns: 1fr; }
+  .transform-row { flex-direction: column; }
+  .transform-arrow { transform: rotate(90deg); }
+  .step-detail p { padding-left: 24px; }
+  .chaos-line { font-size: 11px; }
+  .transform-code { font-size: 10px; }
+  .usps-grid { grid-template-columns: 1fr; }
   .roi-cards { grid-template-columns: 1fr; gap: 20px; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .pi-layout { grid-template-columns: 1fr; gap: 16px; }
+  .pi-conn { display: none; }
+  .pi-card { height: auto; }
+  .cta-actions { flex-direction: column; }
+  .uzh-box { flex-direction: column; }
+}
+.hero-mobile-features {
+  display: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.hero-mobile-chip {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 500;
+  color: var(--navy);
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+@media (max-width: 480px) {
+  .hero { padding: 110px 0 120px; min-height: auto; }
+  .hero-title { font-size: clamp(30px, 8vw, 38px); }
+  .hero-sub { font-size: 15px; }
+  section { padding: 56px 0; }
+  .section-title { font-size: clamp(22px, 6vw, 30px); }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .cta { padding: 56px 0; }
+  .cta-team { gap: 20px; }
+  .cta-person-photo { width: 100px; height: 100px; }
+  .uzh-stats { flex-direction: column; gap: 8px; }
 }
 .skip-link {
   position: absolute; left: -9999px; top: auto;
@@ -938,24 +1339,46 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 <body>
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
+<!-- ══════════════════════════════════════════════════════ NAV -->
+<nav class="nav" id="nav">
+  <a href="https://apivanta.com" class="nav-logo"><img src="logo-apivanta.png" alt="Apivanta" width="139" height="164"></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#problem">Problem</a>
+    <a href="#loesung">Lösung</a>
+    <a href="#referenz">Referenz</a>
+    <a href="#faq">FAQ</a>
+    <a href="#cta">Kontakt</a>
+  </div>
+  <a href="#cta" class="nav-cta">Erstgespräch vereinbaren</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
 <!-- ══════════════════════════════════════════════════════ HERO -->
 <main id="main">
 <section class="hero">
   <div class="hero-grid"></div>
-  <a href="https://apivanta.com" class="hero-logo"><img src="logo-apivanta.png" alt="Apivanta" width="139" height="164"></a>
   <div class="container">
     <div class="hero-inner">
       <div>
-        <div class="hero-eyebrow">Apivanta · Extraktio</div>
+        <div class="hero-eyebrow">Extraktio von Apivanta</div>
         <h1 class="hero-title">
           Aus ungenutzten<br>
-          Files wird<br>
+          Dokumenten wird<br>
           <span class="gradient">verwertbares Wissen.</span>
         </h1>
-        <p class="hero-sub">Wir strukturieren Ihr Dokumentenarchiv: klassifiziert, mit Metadaten, migrationsbereit. In Wochen, nicht Jahren.</p>
-        <div class="hero-pill">
-          <span class="hero-pill-dot"></span>
-          100 % On-Premise - keine Cloud, keine externen APIs
+        <p class="hero-sub">Wir strukturieren Ihr Dokumentenarchiv mit KI: klassifiziert, mit Metadaten, migrationsbereit. In Wochen, nicht Jahren.</p>
+        <div class="hero-mobile-features">
+          <span class="hero-mobile-chip">100 % On-Premise</span>
+          <span class="hero-mobile-chip">Keine Cloud</span>
+          <span class="hero-mobile-chip">Eigene Infrastruktur</span>
+        </div>
+        <div class="hero-pills">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            100 % On-Premise — keine Cloud, keine externen APIs
+          </div>
         </div>
         <a href="#cta" class="hero-cta-btn" aria-label="Erstgespräch vereinbaren">
           Erstgespräch vereinbaren
@@ -966,10 +1389,10 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
         <div class="hero-card-title">Extraktio</div>
         <div class="hero-card-sub">KI · On-Premise</div>
         <ul class="hero-card-items">
-          <li>Keine Cloud</li>
+          <li>Keine Cloud-Dienste</li>
           <li>Keine externen APIs</li>
-          <li>Eigene GPU-Infrastruktur</li>
-          <li>Physisch in der Schweiz</li>
+          <li>Eigene KI-Infrastruktur</li>
+          <li>Verarbeitung in der Schweiz</li>
         </ul>
       </div>
     </div>
@@ -978,39 +1401,38 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 
 
 <!-- ══════════════════════════════════════════════════════ PROBLEM -->
-<section class="problem">
+<section class="problem" id="problem">
   <div class="container">
     <div class="section-label fade-up">Das Problem</div>
     <h2 class="section-title fade-up">Daten vorhanden. Nicht nutzbar.</h2>
-    <p class="section-sub fade-up">Baupläne, Verträge, CAD-Zeichnungen, Protokolle - verteilt, unbenannt, unsuchbar. Das Archiv existiert. Genutzt wird es nicht.</p>
+    <p class="section-sub fade-up">Millionen Dateien. Keine Metadaten. Keine Struktur. So sieht die Realität aus:</p>
 
-    <div class="problem-grid fade-up">
-      <div class="problem-item">
-        <div class="problem-label">Unstrukturierte Archive</div>
-        <div class="problem-text">Gewachsene Ordnerstrukturen, keine einheitliche Benennung, keine Metadaten. <strong>Niemand weiss, was wo liegt.</strong></div>
+    <div class="chaos-terminal fade-up">
+      <div class="chaos-header">
+        <span class="chaos-dot" style="background:#FF5F57"></span>
+        <span class="chaos-dot" style="background:#FFBD2E"></span>
+        <span class="chaos-dot" style="background:#28C840"></span>
+        <span class="chaos-headerpath">NAS / BWD / Bauten</span>
       </div>
-      <div class="problem-item">
-        <div class="problem-label">Wissen steckt in Köpfen</div>
-        <div class="problem-text">Wer lange dabei ist, weiss wo was liegt. <strong>Kein System trägt dieses Wissen.</strong></div>
-      </div>
-      <div class="problem-item">
-        <div class="problem-label">Inkonsistente Benennung</div>
-        <div class="problem-text">«Datenblatt», «Datenblätter», «data sheet» - <strong>drei Begriffe, null gemeinsame Suchergebnisse.</strong></div>
-      </div>
-      <div class="problem-item">
-        <div class="problem-label">Migration = Datenleiche verschieben</div>
-        <div class="problem-text">Wer ohne Bereinigung migriert, <strong>kopiert das Chaos</strong> von System A nach System B.</div>
+      <div class="chaos-body">
+        <div class="chaos-line"><span class="chaos-icon">📁</span> Alt/Diverse/2019/<span class="chaos-hi">scan0042.pdf</span></div>
+        <div class="chaos-line"><span class="chaos-icon">📁</span> Projekte/AFL/???/<span class="chaos-hi">Baugesuch_final_v3_KORR(2).docx</span></div>
+        <div class="chaos-line"><span class="chaos-icon">📁</span> Backup_2021/Archiv/<span class="chaos-hi">archiv_alt.7z</span> <span class="chaos-note">→ 148 Dateien verschachtelt</span></div>
+        <div class="chaos-line"><span class="chaos-icon">📁</span> _temp/Kopie_Elektro/<span class="chaos-hi">plan_neu_ALT.dwg</span></div>
+        <div class="chaos-line"><span class="chaos-icon">📁</span> Bauten/Irchel/Gebäude?/<span class="chaos-hi">Datenblatt.pdf</span></div>
+        <div class="chaos-line"><span class="chaos-icon">📁</span> SharePoint_Export_2018/<span class="chaos-hi">data sheet (1).pdf</span></div>
+        <div class="chaos-line chaos-dim"><span class="chaos-icon">⋯</span> 4.999.994 weitere Dateien · 34 TB · 0 Metadaten</div>
       </div>
     </div>
 
     <div class="drivers fade-up">
       <div class="driver red">
-        <div class="driver-title">SharePoint End-of-Life - 14. Juli 2026</div>
-        <div class="driver-text">SharePoint Server 2016/2019 verliert den Support. Faktischer Migrationszwang für alle Bestandssysteme - ohne Datenbereinigung wird das Problem nur weitergezogen.</div>
+        <div class="driver-title">SharePoint Server — Support-Ende</div>
+        <div class="driver-text">Migrationszwang — mit oder ohne bereinigte Daten.</div>
       </div>
       <div class="driver amber">
         <div class="driver-title">DSGVO-Compliance</div>
-        <div class="driver-text">Aufbewahrungsfristen, Löschpflichten, Zugriffshistorien - ohne strukturierte Metadaten kaum effizient umsetzbar.</div>
+        <div class="driver-text">Ohne strukturierte Metadaten kaum umsetzbar.</div>
       </div>
     </div>
   </div>
@@ -1018,50 +1440,102 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 
 
 <!-- ══════════════════════════════════════════════════════ SOLUTION -->
-<section class="solution">
+<section class="solution" id="loesung">
   <div class="container">
     <div class="section-label fade-up">Die Lösung</div>
     <h2 class="section-title fade-up">Ihr Projekt. Unser Vorgehen.</h2>
     <p class="section-sub fade-up">Vier Phasen mit klaren Übergaben. Sie definieren die Anforderungen. Wir liefern.</p>
 
-    <div class="phases fade-up">
-      <div class="phase">
-        <div class="phase-num">01</div>
-        <div class="phase-body">
-          <div class="phase-title">Datenanalyse</div>
-          <div class="phase-text">Wir sichten Ihr Archiv und identifizieren Formate, Mengen und Muster. Sie erhalten eine klare Einschätzung: Was vorhanden ist, was fehlt und was es braucht.</div>
+    <div class="stepper fade-up">
+      <div class="step">
+        <button class="step-header" aria-expanded="false">
+          <div class="step-num">01</div>
+          <div class="step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M12 12l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="step-title">Datenanalyse</div>
+          <div class="step-badge">~2 Tage</div>
+          <svg class="step-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="step-detail">
+          <p>Wir sichten Ihr Archiv und identifizieren Formate, Mengen und Muster. Verschachtelte Archive (ZIP, 7z, RAR, ISO) werden automatisch entpackt. Sie erhalten eine klare Einschätzung: Was vorhanden ist, was fehlt, was es braucht.</p>
         </div>
       </div>
-      <div class="phase">
-        <div class="phase-num">02</div>
-        <div class="phase-body">
-          <div class="phase-title">Konfiguration &amp; Taxonomie</div>
-          <div class="phase-text">Gemeinsam definieren wir Ihre Metadaten-Struktur: Gebäude, Dokumenttypen, Phasen, Disziplinen. Basierend auf Ihrer bestehenden Nomenklatur und Branchenstandards (SIA, KBOB). Wir konfigurieren die Pipeline auf Ihre Logik.</div>
+      <div class="step">
+        <button class="step-header" aria-expanded="false">
+          <div class="step-num">02</div>
+          <div class="step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="step-title">Konfiguration &amp; Taxonomie</div>
+          <div class="step-badge">Individuell</div>
+          <svg class="step-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="step-detail">
+          <p>Welche Felder brauchen Sie? Gebäude, Dokumenttypen, Phasen, Disziplinen — oder ganz andere? Wir definieren Ihre Taxonomie gemeinsam und konfigurieren die Pipeline auf Ihre Logik. Anzahl, Art und Validierung der Felder sind frei wählbar.</p>
         </div>
       </div>
-      <div class="phase">
-        <div class="phase-num">03</div>
-        <div class="phase-body">
-          <div class="phase-title">Test Buckets &amp; Validierung</div>
-          <div class="phase-text">Wir verarbeiten repräsentative Testmengen und prüfen die Ergebnisse gemeinsam. Iteration, bis die Qualität stimmt. Erst dann geht es in die Breite.</div>
+      <div class="step">
+        <button class="step-header" aria-expanded="false">
+          <div class="step-num">03</div>
+          <div class="step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9l4 4 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="step-title">Test &amp; Validierung</div>
+          <div class="step-badge">Iteration</div>
+          <svg class="step-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="step-detail">
+          <p>Wir verarbeiten repräsentative Testmengen und prüfen die Ergebnisse gemeinsam. Iteration, bis die Qualität stimmt. Erst dann geht es in die Breite.</p>
         </div>
       </div>
-      <div class="phase">
-        <div class="phase-num">04</div>
-        <div class="phase-body">
-          <div class="phase-title">Vollverarbeitung &amp; Übergabe</div>
-          <div class="phase-text">Der gesamte Bestand wird verarbeitet. Sie erhalten strukturierte Metadaten als CSV oder JSON. Jedes Feld dokumentiert, jede Entscheidung nachvollziehbar.</div>
+      <div class="step">
+        <button class="step-header" aria-expanded="false">
+          <div class="step-num">04</div>
+          <div class="step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="step-title">Vollverarbeitung &amp; Übergabe</div>
+          <div class="step-badge">~10k Dok/h</div>
+          <svg class="step-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="step-detail">
+          <p>Unterbrechungssicher: Bei Abbruch wird nahtlos fortgesetzt. Sie erhalten strukturierte Metadaten als CSV oder JSON — jedes Feld dokumentiert, jede Entscheidung nachvollziehbar.</p>
         </div>
       </div>
     </div>
 
+    <!-- ── FILENAME TRANSFORMATION ──────────────────────────── -->
+    <div class="transform fade-up">
+      <div class="transform-label-top">Das Ergebnis: Aus Chaos wird Struktur</div>
+      <div class="transform-row">
+        <div class="transform-side transform-before">
+          <div class="transform-tag">Vorher</div>
+          <code class="transform-code">\\NAS\BWD\Alt\Diverse\2019\<br>scan_elektro_final_v3.pdf</code>
+        </div>
+        <div class="transform-arrow">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="transform-side transform-after">
+          <div class="transform-tag">Nachher</div>
+          <div class="tf-grid">
+            <div class="tf-cell"><code>UZ01</code><span>Areal</span></div>
+            <div class="tf-cell"><code>AFL</code><span>Gebäude</span></div>
+            <div class="tf-cell"><code>12345</code><span>Projekt</span></div>
+            <div class="tf-cell"><code>V08004</code><span>Dok.typ</span></div>
+            <div class="tf-cell"><code>52</code><span>Phase</span></div>
+            <div class="tf-cell"><code>1</code><span>Version</span></div>
+            <div class="tf-cell"><code>V123456</code><span>Planer</span></div>
+            <div class="tf-cell"><code>H</code><span>Disziplin</span></div>
+            <div class="tf-cell"><code>001</code><span>Plan-Nr.</span></div>
+            <div class="tf-cell"><code>OG02</code><span>Geschoss</span></div>
+            <div class="tf-cell tf-cell-desc"><code>Elektroplan</code><span>Beschreibung</span></div>
+            <div class="tf-cell tf-cell-ext"><code>.pdf</code><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="transform-caption">Beispiel: 12 Felder für Bauakten (UZH). Taxonomie und Felder werden pro Kunde definiert — anpassbar an Ihre Struktur und Branche.</div>
+    </div>
+
     <!-- ── PIPELINE INFOGRAPHIC ─────────────────────────────── -->
     <div class="pi fade-up">
-      <div class="pi-eyebrow">Vier Analyse-Schichten im Einsatz</div>
+      <div class="pi-eyebrow">Vier Quellen, ein Ergebnis</div>
+      <div class="pi-summary">Jedes Dokument wird aus vier unabhängigen Perspektiven analysiert. Wo eine Quelle unsicher ist, gleichen die anderen aus.</div>
 
       <div class="pi-layout" id="piLayout">
 
-        <!-- ── INPUT CARD ──────────────────── -->
         <div class="pi-card pi-card-in">
           <div class="pi-card-label">Eingang</div>
           <div class="pi-card-icon">
@@ -1073,20 +1547,17 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
             </svg>
           </div>
           <div class="pi-card-title">Dokument</div>
-          <div class="pi-card-sub">PDF · CAD · Office<br>Bild · Text</div>
-          <div class="pi-card-badge">5 Format-Gruppen</div>
+          <div class="pi-card-sub">PDF · CAD · Office<br>Bild · Text · Archive</div>
+          <div class="pi-card-badge">Alle Formate</div>
         </div>
 
-        <!-- ── LEFT CONNECTOR: Dokument → Stream 1 ── -->
         <div class="pi-conn">
           <svg width="44" height="310" viewBox="0 0 44 310" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M 44,38 L 0,38" stroke="#38BDF8" stroke-width="1.5" opacity="0.3"/>
           </svg>
         </div>
 
-        <!-- ── 4 EXTRACTION STREAMS ─────────── -->
         <div class="pi-streams">
-
           <div class="pi-stream pi-stream-sky">
             <div class="pi-stream-num">01</div>
             <div class="pi-stream-body">
@@ -1094,7 +1565,6 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
               <div class="pi-stream-sub">Ordnerstruktur &amp; Dateiname als erste Erkennungsquelle</div>
             </div>
           </div>
-
           <div class="pi-stream pi-stream-blu">
             <div class="pi-stream-num">02</div>
             <div class="pi-stream-body">
@@ -1102,15 +1572,13 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
               <div class="pi-stream-sub">Maschinenlesbarer Volltext aus PDF, Office &amp; CAD</div>
             </div>
           </div>
-
           <div class="pi-stream pi-stream-vio">
             <div class="pi-stream-num">03</div>
             <div class="pi-stream-body">
               <div class="pi-stream-title">Vision AI</div>
-              <div class="pi-stream-sub">Titelblöcke, Stempel &amp; Layouts visuell gelesen - auch CAD</div>
+              <div class="pi-stream-sub">Titelblöcke, Stempel &amp; Layouts visuell gelesen — auch Baupläne</div>
             </div>
           </div>
-
           <div class="pi-stream pi-stream-eme">
             <div class="pi-stream-num">04</div>
             <div class="pi-stream-body">
@@ -1118,17 +1586,14 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
               <div class="pi-stream-sub">DE + EN Synonyme → normalisierte Codes <code>B19009</code></div>
             </div>
           </div>
+        </div>
 
-        </div><!-- /pi-streams -->
-
-        <!-- ── RIGHT CONNECTOR: Stream 4 → Output ── -->
         <div class="pi-conn">
           <svg width="44" height="310" viewBox="0 0 44 310" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M 0,272 C 16,272 28,155 44,155" stroke="#34D399" stroke-width="1.5" opacity="0.3"/>
           </svg>
         </div>
 
-        <!-- ── OUTPUT CARD ─────────────────── -->
         <div class="pi-card pi-card-out">
           <div class="pi-card-label">Ausgang</div>
           <div class="pi-card-icon">
@@ -1149,26 +1614,22 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
             <span class="pi-field">+ 7 weitere</span>
           </div>
           <div class="pi-stat-val">97%</div>
-          <div class="pi-stat-label">Trefferquote</div>
+          <div class="pi-stat-label">vollständig klassifiziert</div>
         </div>
 
-      </div><!-- /pi-layout -->
-
-
-    </div><!-- /pi -->
+      </div>
+    </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════════ ROI -->
 <section class="roi">
-  <div class="roi-grid"></div>
-  <div class="roi-glow"></div>
   <div class="container">
     <div class="roi-inner">
       <div class="section-label fade-up">Aufwand</div>
       <h2 class="section-title fade-up">Intern machbar. Aber in welchem Zeitrahmen?</h2>
-      <p class="section-sub fade-up">80.000 Dokumente manuell aufarbeiten bedeutet 4.000 Stunden Aufwand. Die Frage ist: Wie lange, und wer macht es?</p>
+      <p class="section-sub fade-up">Beispiel: 80.000 Dokumente manuell aufarbeiten bedeutet 4.000 Stunden Aufwand. Die Frage ist nicht ob, sondern wie lange — und wer es macht.</p>
 
       <div class="roi-cards fade-up">
         <div class="roi-card">
@@ -1181,7 +1642,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
           <div class="roi-val">~8 <span class="roi-unit">Mte.</span></div>
           <div class="roi-detail">4.000 Stunden<br>aufgeteilt</div>
         </div>
-        <div class="roi-card hero-card-highlight">
+        <div class="roi-card highlight">
           <div class="roi-card-badge">Mit Extraktio</div>
           <div class="roi-card-scenario">Wir übernehmen</div>
           <div class="roi-val">~4–6 <span class="roi-unit">Wo.</span></div>
@@ -1189,50 +1650,82 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
         </div>
       </div>
 
-      <p class="roi-footnote fade-up">Basis: 80.000 Dokumente × 3 Min. manuelle Bearbeitungszeit = 4.000 Stunden · 1 Mitarbeiter intern = ~25 Monate Vollzeit = ~CHF 120.000</p>
+      <p class="roi-footnote fade-up">Basis: 80.000 Dokumente × 3 Min. manuelle Bearbeitungszeit · Verarbeitungsgeschwindigkeit Extraktio: ~10.000 Dokumente pro Stunde</p>
     </div>
   </div>
 </section>
 
+<!-- ── INLINE CTA ───────────────────────────────────────── -->
+<div class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-inner">
+      <span class="inline-cta-text">Bereit für strukturierte Daten?</span>
+      <a href="#cta" class="inline-cta-btn">
+        Erstgespräch vereinbaren
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════════════════════════ METRICS -->
-<section class="metrics">
+<section class="metrics" id="referenz">
   <div class="container">
-    <div class="section-label fade-up">Referenz</div>
-    <h2 class="section-title fade-up">Bewiesene Ergebnisse.</h2>
+    <div class="section-label fade-up">Referenzprojekt</div>
+    <h2 class="section-title fade-up">Universität Zürich — bewiesene Ergebnisse.</h2>
 
     <div class="metrics-grid fade-up">
       <div class="metric">
-        <div class="metric-val">80.000+</div>
-        <div class="metric-label">Dokumente</div>
-        <div class="metric-sub">Produktiver Einsatz</div>
+        <div class="metric-val" data-count="5" data-suffix=" Mio.+">0</div>
+        <div class="metric-label">Dateien</div>
+        <div class="metric-sub">im Projektumfang</div>
       </div>
       <div class="metric">
-        <div class="metric-val">490+</div>
+        <div class="metric-val" data-count="34" data-suffix=" TB">0</div>
+        <div class="metric-label">Datenvolumen</div>
+        <div class="metric-sub">verarbeitet</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val" data-count="490" data-suffix="+">0</div>
         <div class="metric-label">Gebäude</div>
         <div class="metric-sub">vollständig strukturiert</div>
       </div>
       <div class="metric">
-        <div class="metric-val">600+</div>
+        <div class="metric-val" data-count="600" data-suffix="+">0</div>
         <div class="metric-label">Dokumenttypen</div>
         <div class="metric-sub">im System abgebildet</div>
-      </div>
-      <div class="metric">
-        <div class="metric-val">97%</div>
-        <div class="metric-label">Trefferquote</div>
-        <div class="metric-sub">in relevanten Feldern</div>
       </div>
     </div>
 
     <div class="uzh-box fade-up">
-      <img src="uzh-logo.svg" alt="Universität Zürich" class="uzh-logo" width="143" height="49" loading="lazy" decoding="async" onerror="this.style.display='none'">
+      <img src="uzh-logo.svg" alt="Universität Zürich" class="uzh-logo" width="143" height="49" loading="lazy" decoding="async">
       <div>
         <div class="uzh-title">Referenz: Universität Zürich (UZH)</div>
-        <div class="uzh-sub">Produktiver Einsatz beim SharePoint-Migrationsprojekt der UZH.</div>
+        <div class="uzh-sub">Die Abteilung Bauten und Betrieb der Universität Zürich verfügte über ein gewachsenes Dokumentenarchiv mit Millionen von Dateien — Baupläne, Verträge, CAD-Zeichnungen, Protokolle. Uneinheitlich benannt, über Jahrzehnte gewachsen, verteilt auf verschiedene Systeme. Extraktio strukturierte den gesamten Bestand: klassifiziert, mit Metadaten versehen und bereit für die Migration nach SharePoint.</div>
+        <div class="uzh-stats">
+          <div class="uzh-stat">5 Mio.+ <span>Dateien</span></div>
+          <div class="uzh-stat">34 TB <span>Volumen</span></div>
+          <div class="uzh-stat">490+ <span>Gebäude</span></div>
+          <div class="uzh-stat">600+ <span>Dokumenttypen</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ── INLINE CTA ───────────────────────────────────────── -->
+<div class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-inner">
+      <span class="inline-cta-text">Ähnliche Herausforderung?</span>
+      <a href="#cta" class="inline-cta-btn">
+        Lassen Sie uns sprechen
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════════════════════ BEFORE / AFTER -->
@@ -1243,20 +1736,48 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 
     <div class="ba-split fade-up">
       <div class="ba-col before">
-        <div class="ba-head">✕ &nbsp; Vorher</div>
-        <div class="ba-row">Navigation durch Ordnerstrukturen - keine Alternative</div>
-        <div class="ba-row">Wissen steckt in Köpfen</div>
-        <div class="ba-row">«Datenblatt» findet nicht «Datenblätter»</div>
-        <div class="ba-row">Migration = Chaos von A nach B kopieren</div>
-        <div class="ba-row">Aufbewahrungspflichten? Unklar.</div>
+        <div class="ba-head">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Vorher
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="2" fill="currentColor" opacity="0.3"/></svg>
+          <span><code>\\NAS\Projekte\Alt\Div_2019\scan0042.pdf</code> — kein Kontext</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="2" fill="currentColor" opacity="0.3"/></svg>
+          <span><code>Baugesuch_final_v3_KORR(2).docx</code> — welches Gebäude?</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="2" fill="currentColor" opacity="0.3"/></svg>
+          <span>Wissen steckt in Köpfen — nicht im System</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="2" fill="currentColor" opacity="0.3"/></svg>
+          <span>Aufbewahrungspflichten? Unklar.</span>
+        </div>
       </div>
       <div class="ba-col after">
-        <div class="ba-head">✓ &nbsp; Nachher</div>
-        <div class="ba-row">«Alle Elektropläne, Gebäude X» - Ergebnis in Sekunden</div>
-        <div class="ba-row">Wissen steckt in strukturierten Metadaten</div>
-        <div class="ba-row">Code B19009 findet alle - egal wie benannt</div>
-        <div class="ba-row">Migration auf Basis sauberer, validierter Metadaten</div>
-        <div class="ba-row">Aufbewahrungspflichten: transparent und nachweisbar</div>
+        <div class="ba-head">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Nachher
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><code>UNI-B19009-Elektroplan-Phase52-OG02.pdf</code> — sofort findbar</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Gebäude, Typ, Phase, Disziplin, Geschoss — in jedem Datensatz</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Metadaten im System — unabhängig von Personen</span>
+        </div>
+        <div class="ba-row">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Aufbewahrungsfristen: pro Dokument transparent dokumentiert</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1272,7 +1793,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
     <div class="usps-grid fade-up">
       <div class="usp">
         <div class="usp-title">Keine Cloud, keine externen APIs</div>
-        <div class="usp-text">Wir verarbeiten Ihre Daten auf unseren eigenen Rechnern und GPUs in der Schweiz. Nichts davon geht in die Cloud oder an Drittanbieter. Nach der Verarbeitung erhalten Sie die strukturierten Ergebnisse. Ihre Quelldaten bleiben unverändert.</div>
+        <div class="usp-text">Wir verarbeiten Ihre Daten auf unserer eigenen Infrastruktur in der Schweiz. Nichts davon geht in die Cloud oder an Drittanbieter. Nach der Verarbeitung erhalten Sie die strukturierten Ergebnisse. Ihre Quelldaten bleiben unverändert.</div>
       </div>
       <div class="usp">
         <div class="usp-title">Wir übernehmen. Sie entscheiden.</div>
@@ -1280,7 +1801,11 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
       </div>
       <div class="usp">
         <div class="usp-title">Jede Entscheidung nachvollziehbar</div>
-        <div class="usp-text">Jedes Metadaten-Feld hat eine dokumentierte Quelle und eine klare Regel. Kein opakes Confidence-Scoring. Jede Klassifikation ist nachprüfbar.</div>
+        <div class="usp-text">Jedes Metadaten-Feld dokumentiert, woher die Information stammt: Dateipfad, extrahierter Text, visuelle Analyse oder Keyword-Abgleich. Kein opakes Scoring — jede Klassifikation ist nachprüfbar und auditierbar.</div>
+      </div>
+      <div class="usp">
+        <div class="usp-title">Eingebaute Qualitätsprüfung</div>
+        <div class="usp-text">Ein unabhängiges KI-Modell prüft jede Klassifikation systematisch nach — nicht Stichproben, sondern jedes Dokument. Fehlerhafte oder unsichere Ergebnisse werden automatisch markiert, bevor sie bei Ihnen ankommen.</div>
       </div>
     </div>
   </div>
@@ -1291,36 +1816,110 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
 <section class="possible">
   <div class="container">
     <div class="section-label fade-up">Was danach möglich wird</div>
-    <h2 class="section-title fade-up">Und dann?</h2>
-    <p class="section-sub fade-up">Strukturierte Daten sind die Grundlage für alles Weitere: Suche, Compliance, Migration, KI-Anwendungen.</p>
+    <h2 class="section-title fade-up">Strukturierte Daten als Grundlage.</h2>
+    <p class="section-sub fade-up">Suche, Compliance, Migration, KI-Anwendungen — alles baut auf sauberen Metadaten auf.</p>
 
     <div class="possible-grid fade-up">
       <div class="possible-item">
-        <div class="possible-icon">→</div>
+        <div class="possible-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
         <div>
           <div class="possible-title">Migration</div>
-          <div class="possible-text">Saubere, validierte Metadaten als Grundlage - kein Chaos übertragen, sondern strukturierte Inhalte migrieren.</div>
+          <div class="possible-text">Saubere, validierte Metadaten als Grundlage — kein Chaos übertragen, sondern strukturierte Inhalte migrieren.</div>
         </div>
       </div>
       <div class="possible-item">
-        <div class="possible-icon">⌕</div>
+        <div class="possible-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M12 12l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
         <div>
           <div class="possible-title">Strukturierte Suche</div>
-          <div class="possible-text">«Alle Elektropläne, Gebäude X» - gefiltert nach Metadaten in Sekunden. Kein Ordner-Klicken mehr.</div>
+          <div class="possible-text">«Alle Elektropläne, Gebäude X» — gefiltert nach Metadaten in Sekunden. Kein Ordner-Klicken mehr.</div>
         </div>
       </div>
       <div class="possible-item">
-        <div class="possible-icon">✓</div>
+        <div class="possible-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9l4 4 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
         <div>
           <div class="possible-title">Compliance</div>
           <div class="possible-text">Aufbewahrungsfristen und Löschpflichten pro Dokument transparent dokumentiert und jederzeit auditierbar.</div>
         </div>
       </div>
       <div class="possible-item">
-        <div class="possible-icon">◈</div>
+        <div class="possible-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
         <div>
           <div class="possible-title">KI-Anwendungen als nächster Schritt</div>
           <div class="possible-text">Semantic Search, RAG, Knowledge Graphs: erst auf geordneten Daten kann KI wirklich arbeiten.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════ FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label fade-up">Häufige Fragen</div>
+    <h2 class="section-title fade-up">Was Sie wissen sollten.</h2>
+
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wie lange dauert ein typisches Projekt?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Typisch 4–6 Wochen ab Datenübernahme. Phase 1 (Analyse) dauert wenige Tage. Die Verarbeitung selbst läuft mit rund 10.000 Dokumenten pro Stunde — bei 80.000 Dokumenten ist die reine Verarbeitungszeit unter einem Tag.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Welche Dateiformate werden unterstützt?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">PDF, CAD-Formate (DWG, DXF), Office-Dokumente (Word, Excel, PowerPoint), Bilder und Textdateien. Verschachtelte Archive — ZIP, 7z, RAR, TAR, ISO — werden automatisch entpackt und indexiert, egal wie tief verschachtelt.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Was passiert mit unseren Daten nach der Verarbeitung?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sie erhalten die strukturierten Metadaten als CSV oder JSON. Ihre Quelldaten bleiben dabei unverändert. Nach Projektabschluss werden alle Daten auf unserer Infrastruktur vollständig gelöscht.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Was bedeutet «On-Premise» genau?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Wir verarbeiten Ihre Daten auf unserer eigenen Infrastruktur in der Schweiz. Keine Cloud-Dienste, keine Drittanbieter-APIs wie OpenAI, Google oder Azure. Die Daten verlassen zu keinem Zeitpunkt unsere kontrollierte Umgebung.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Muss unsere IT-Abteilung involviert sein?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Minimal. Ihre IT liefert die Daten — zum Beispiel auf einer externen Festplatte oder via gesicherten Transfer. Die gesamte Verarbeitung, Konfiguration und Qualitätssicherung übernehmen wir.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wie wird die Qualität sichergestellt?
+          <svg class="faq-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Jedes Dokument wird aus vier unabhängigen Quellen analysiert und die Ergebnisse kreuzvalidiert. Zusätzlich prüft ein unabhängiges KI-Modell jede Klassifikation systematisch nach. Fehlerhafte oder unsichere Ergebnisse werden explizit markiert — kein opakes Confidence-Scoring, sondern klare Flags wie «Dokumenttyp fehlt» oder «Gebäudecode ungültig».</div>
         </div>
       </div>
     </div>
@@ -1335,7 +1934,14 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
     <div class="cta-inner">
       <div class="cta-tag">Jetzt starten</div>
       <h2 class="cta-title">Erstgespräch vereinbaren</h2>
-      <p class="cta-sub">Lassen Sie uns Ihre Dokumentensituation besprechen -<br>kostenlos und unverbindlich.</p>
+      <p class="cta-sub">Lassen Sie uns Ihre Dokumentensituation besprechen —<br>kostenlos und unverbindlich.</p>
+      <div class="cta-actions">
+        <a href="mailto:dp@apivanta.com" class="cta-btn-primary">
+          Kontakt aufnehmen
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://apivanta.com" class="cta-btn-secondary">apivanta.com</a>
+      </div>
       <div class="cta-team">
         <div class="cta-person">
           <div class="cta-person-photo"><img src="david.webp" alt="David Parolo" width="360" height="540" loading="lazy" decoding="async"></div>
@@ -1350,27 +1956,27 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
       </div>
       <div class="cta-links">
         <a href="mailto:dp@apivanta.com" aria-label="E-Mail an David Parolo">dp@apivanta.com</a>
-        <span class="cta-sep">·</span>
+        <span class="cta-sep">&middot;</span>
         <a href="mailto:ms@apivanta.com" aria-label="E-Mail an Mario Saladino">ms@apivanta.com</a>
-        <span class="cta-sep">·</span>
-        <a href="https://apivanta.com" aria-label="Apivanta Website">apivanta.com</a>
       </div>
     </div>
   </div>
 </section>
 
 </main>
+
 <footer>
   <div class="container">
-    <p>© 2026 Apivanta &nbsp;·&nbsp; Extraktio</p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.25);text-align:center;padding:20px 0">&copy; 2026 Apivanta &middot; Extraktio &middot; <a href="https://apivanta.com" style="color:rgba(255,255,255,0.35);text-decoration:none">apivanta.com</a></p>
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════ SCRIPTS ═══ -->
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
 </script>
 
 <script>
@@ -1391,10 +1997,8 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   var FADE_IN_END = 0.02;
   var FADE_OUT_START = 0.94;
   var NS = 'http://www.w3.org/2000/svg';
-
   var CUM = [0];
   SEG.forEach(function(s) { CUM.push(CUM[CUM.length - 1] + s.w); });
-
   var rafId = null;
   var svg, dot, trail, WP;
 
@@ -1433,7 +2037,6 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
     var outCard = layout.querySelector('.pi-card-out');
     var streams = layout.querySelectorAll('.pi-stream');
     if (!inCard || !outCard || streams.length < 4) return;
-
     computeWaypoints(layout, inCard, outCard, streams);
 
     svg = document.createElementNS(NS, 'svg');
@@ -1458,7 +2061,6 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
     trail = document.createElementNS(NS, 'circle');
     trail.setAttribute('r', '2.4'); trail.setAttribute('opacity', '0.35');
     svg.appendChild(trail);
-
     dot = document.createElementNS(NS, 'circle');
     dot.setAttribute('r', '3.8'); dot.setAttribute('filter', 'url(#pglow)');
     svg.appendChild(dot);
@@ -1489,11 +2091,9 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
     function start() { if (!rafId) { t0 = null; rafId = requestAnimationFrame(frame); } }
     function stop()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
-
     document.addEventListener('visibilitychange', function() {
       document.hidden ? stop() : start();
     });
-
     start();
   }
 
@@ -1502,6 +2102,128 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   } else {
     setTimeout(init, 80);
   }
+})();
+</script>
+
+<script>
+(function counterAnimation() {
+  var animated = false;
+  var els = document.querySelectorAll('[data-count]');
+  if (!els.length) return;
+
+  function animateCounters() {
+    if (animated) return;
+    animated = true;
+    els.forEach(function(el) {
+      var target = parseFloat(el.getAttribute('data-count'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1600;
+      var start = performance.now();
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(eased * target);
+        el.textContent = current.toLocaleString('de-CH') + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  var counterObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) animateCounters();
+    });
+  }, { threshold: 0.3 });
+
+  var metricsSection = document.querySelector('.metrics');
+  if (metricsSection) counterObs.observe(metricsSection);
+})();
+</script>
+
+<script>
+(function stepperAccordion() {
+  document.querySelectorAll('.step-header').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var step = btn.parentElement;
+      var detail = step.querySelector('.step-detail');
+      var isOpen = step.classList.contains('open');
+      document.querySelectorAll('.step.open').forEach(function(s) {
+        s.classList.remove('open');
+        s.querySelector('.step-header').setAttribute('aria-expanded', 'false');
+        s.querySelector('.step-detail').style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        step.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        detail.style.maxHeight = detail.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function faqAccordion() {
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.parentElement;
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        openItem.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function navBehavior() {
+  var nav = document.getElementById('nav');
+  var hamburger = document.getElementById('navHamburger');
+  var links = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    links.classList.toggle('open');
+    hamburger.setAttribute('aria-label',
+      links.classList.contains('open') ? 'Menü schliessen' : 'Menü öffnen');
+  });
+
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = links.querySelectorAll('a');
+  var activeObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        var active = links.querySelector('a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '-64px 0px -50% 0px' });
+
+  sections.forEach(function(s) { activeObs.observe(s); });
 })();
 </script>
 </body>
